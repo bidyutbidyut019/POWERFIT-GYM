@@ -61,7 +61,7 @@ if (registerForm) {
 
                 const response = await fetch(
 
-                    'http://localhost:5000/api/auth/register',
+                    'https://server-073l.onrender.com/api/auth/register',
 
                     {
 
@@ -160,7 +160,7 @@ if (loginForm) {
 
                 const response = await fetch(
 
-                    'http://localhost:5000/api/auth/login',
+                    'https://server-073l.onrender.com/api/auth/login',
 
                     {
 
