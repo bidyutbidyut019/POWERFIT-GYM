@@ -1,0 +1,236 @@
+/* ====================================
+   MEMBERSHIP PAGE
+==================================== */
+
+.membership-section {
+
+    padding: 80px 20px;
+
+    background: #0f0f0f;
+
+    min-height: 100vh;
+
+}
+
+/* ====================================
+   GRID
+==================================== */
+
+.membership-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    );
+
+    gap: 30px;
+
+    margin-top: 50px;
+
+}
+
+/* ====================================
+   CARD
+==================================== */
+
+.membership-card {
+
+    background: #1a1a1a;
+
+    border: 1px solid #2a2a2a;
+
+    border-radius: 20px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.membership-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: #ff004f;
+
+}
+
+/* ====================================
+   FEATURED PLAN
+==================================== */
+
+.featured-plan {
+
+    border: 2px solid #ff004f;
+
+    transform: scale(1.03);
+
+}
+
+.featured-plan::before {
+
+    content: 'Most Popular';
+
+    position: absolute;
+
+    top: 20px;
+
+    right: -40px;
+
+    background: #ff004f;
+
+    color: white;
+
+    padding: 8px 50px;
+
+    transform: rotate(45deg);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+/* ====================================
+   TITLES
+==================================== */
+
+.membership-card h2 {
+
+    font-size: 32px;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+}
+
+/* ====================================
+   PRICE
+==================================== */
+
+.price {
+
+    font-size: 52px;
+
+    color: #ff004f;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+}
+
+.price span {
+
+    font-size: 18px;
+
+    color: #bbbbbb;
+
+}
+
+/* ====================================
+   FEATURES
+==================================== */
+
+.membership-card ul {
+
+    list-style: none;
+
+    margin-bottom: 30px;
+
+}
+
+.membership-card ul li {
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #2a2a2a;
+
+    color: #dddddd;
+
+}
+
+/* ====================================
+   BUTTON
+==================================== */
+
+.choose-plan-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #ff004f;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.choose-plan-btn:hover {
+
+    background: #ff336f;
+
+}
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media (max-width: 768px) {
+
+    .membership-card {
+
+        padding: 30px 20px;
+
+    }
+
+    .membership-card h2 {
+
+        font-size: 26px;
+
+    }
+
+    .price {
+
+        font-size: 42px;
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .membership-section {
+
+        padding: 60px 15px;
+
+    }
+
+    .membership-grid {
+
+        gap: 20px;
+
+    }
+
+}

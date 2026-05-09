@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Profile - POWERFIT GYM">
+
+    <title>Profile | POWERFIT GYM</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../public/images/logo.png">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR COMPONENT
+    ========================== -->
+    <div id="navbar"></div>
+
+    <!-- =========================
+         PROFILE MAIN
+    ========================== -->
+    <main class="dashboard-main profile-main">
+
+        <!-- Profile Header -->
+        <div class="dashboard-header">
+
+            <div class="dashboard-title">
+
+                <h1>
+                    My Profile
+                </h1>
+
+                <p>
+                    Manage your account information
+                </p>
+
+            </div>
+
+            <!-- Back Button -->
+            <a href="./dashboard.html" class="back-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+        <!-- =========================
+             PROFILE CONTENT
+        ========================== -->
+        <section class="dashboard-content">
+
+            <!-- Profile Form Card -->
+            <div class="profile-card">
+
+                <div class="profile-header">
+
+                    <div class="profile-avatar">
+
+                        <span id="avatarLetter">U</span>
+
+                    </div>
+
+                    <div class="profile-info">
+
+                        <h2 id="fullName">User Name</h2>
+
+                        <p id="userEmail">user@email.com</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Membership Status Section -->
+                <div id="membershipSection" class="membership-section" style="display: none;">
+
+                    <div class="membership-badge">
+
+                        <span class="badge-label">Current Membership</span>
+                        <span id="membershipPlan" class="badge-value">Basic</span>
+
+                    </div>
+
+                    <div class="membership-details">
+
+                        <p id="membershipStatus">Status: Active</p>
+                        <p id="membershipExpiry">Expires: May 8, 2026</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Profile Form -->
+                <form id="profileForm" class="profile-form">
+
+                    <!-- Row 1: First Name & Last Name (Read-Only) -->
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="firstName">First Name (Read-Only)</label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="First Name"
+                                readonly
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="lastName">Last Name (Read-Only)</label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Last Name"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- Row 2: Email (Read-Only) -->
+                    <div class="form-row">
+
+                        <div class="form-group full">
+
+                            <label for="email">Email (Read-Only)</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- Row 3: Phone & Age -->
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="phone">Phone Number</label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="age">Age</label>
+
+                            <input
+                                type="number"
+                                id="age"
+                                name="age"
+                                placeholder="Enter your age"
+                                min="18"
+                                max="120"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- Row 4: Gender -->
+                    <div class="form-row">
+
+                        <div class="form-group full">
+
+                            <label for="gender">Gender</label>
+
+                            <select id="gender" name="gender" required>
+
+                                <option value="">Select Gender</option>
+
+                                <option value="Male">Male</option>
+
+                                <option value="Female">Female</option>
+
+                                <option value="Other">Other</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+
+                        <button type="submit" class="btn btn-primary">
+
+                            Save Changes
+
+                        </button>
+
+                        <button type="reset" class="btn btn-secondary">
+
+                            Reset
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+
+                    Profile updated successfully!
+
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message" style="display: none;">
+
+                    Failed to update profile. Please try again.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================
+         FOOTER COMPONENT
+    ========================== -->
+    <div id="footer"></div>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/profile-edit.js"></script>
+
+</body>
+
+</html>

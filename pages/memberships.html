@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Membership Plans - POWERFIT GYM">
+
+    <title>Memberships | POWERFIT GYM</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../public/images/logo.png">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR COMPONENT
+    ========================== -->
+    <div id="navbar"></div>
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+    <section class="page-header">
+
+        <div class="container">
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                <div>
+
+                    <h1>
+
+                        Membership Plans
+
+                    </h1>
+
+                    <p>
+
+                        Choose the perfect membership package
+                        for your fitness journey.
+
+                    </p>
+
+                </div>
+
+                <!-- Back Button to Dashboard -->
+                <a href="./dashboard.html" class="back-btn" id="backToDashboard" style="display: none; text-decoration: none; color: #0066cc; font-weight: 500; white-space: nowrap;">
+
+                    ← Back to Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         MEMBERSHIP SECTION
+    ========================== -->
+    <section class="memberships">
+
+        <div class="container">
+
+            <!-- CURRENT MEMBERSHIP STATUS -->
+            <div id="membershipStatus" style="display: none; margin-bottom: 40px;">
+
+                <div class="membership-status-card">
+
+                    <div class="status-header">
+
+                        <h2>Your Current Membership</h2>
+
+                        <span id="statusBadge" class="status-badge">Active</span>
+
+                    </div>
+
+                    <div class="status-details">
+
+                        <div class="detail-row">
+
+                            <label>Plan Type:</label>
+
+                            <span id="currentPlan">-</span>
+
+                        </div>
+
+                        <div class="detail-row">
+
+                            <label>Status:</label>
+
+                            <span id="currentStatus">-</span>
+
+                        </div>
+
+                        <div class="detail-row">
+
+                            <label>Approved Date:</label>
+
+                            <span id="approvedDate">-</span>
+
+                        </div>
+
+                        <div class="detail-row">
+
+                            <label>Expiry Date:</label>
+
+                            <span id="expiryDate">-</span>
+
+                        </div>
+
+                        <div class="detail-row">
+
+                            <label>Days Remaining:</label>
+
+                            <span id="daysRemaining">-</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- UPGRADE OPTIONS TITLE -->
+                <div id="upgradeOptionsTitle" style="display: none; margin-top: 40px; margin-bottom: 20px;">
+
+                    <h2 style="text-align: center; color: #333; font-size: 28px;">
+
+                        Upgrade Your Membership
+
+                    </h2>
+
+                    <p style="text-align: center; color: #666; font-size: 16px; margin-top: 10px;">
+
+                        Choose a higher-tier plan to unlock more benefits
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="memberships-grid">
+
+                <!-- BASIC PLAN -->
+                <div class="membership-card">
+
+                    <h3>
+                        Basic
+                    </h3>
+
+                    <div class="price">
+
+                        $29<span>/month</span>
+
+                    </div>
+
+                    <p class="membership-description">
+
+                        Perfect for beginners and casual members.
+
+                    </p>
+
+                    <ul class="features-list">
+
+                        <li>✓ Gym Access</li>
+
+                        <li>✓ Locker Access</li>
+
+                        <li>✓ Basic Equipment</li>
+
+                        <li>✓ Mobile App Access</li>
+
+                        <li>✗ Personal Trainer</li>
+
+                        <li>✗ Premium Classes</li>
+
+                    </ul>
+
+                    <button class="btn btn-secondary choose-plan-btn" data-plan="Basic" data-price="29">
+
+                        Choose Plan
+
+                    </button>
+
+                </div>
+
+                <!-- PREMIUM PLAN -->
+                <div class="membership-card featured">
+
+                    <span class="badge">
+
+                        Most Popular
+
+                    </span>
+
+                    <h3>
+                        Premium
+                    </h3>
+
+                    <div class="price">
+
+                        $59<span>/month</span>
+
+                    </div>
+
+                    <p class="membership-description">
+
+                        Best plan for regular fitness enthusiasts.
+
+                    </p>
+
+                    <ul class="features-list">
+
+                        <li>✓ 24/7 Gym Access</li>
+
+                        <li>✓ Unlimited Classes</li>
+
+                        <li>✓ Personal Trainer</li>
+
+                        <li>✓ Nutrition Guidance</li>
+
+                        <li>✓ Mobile App Access</li>
+
+                        <li>✓ Fitness Tracking</li>
+
+                    </ul>
+
+                    <button class="btn btn-primary choose-plan-btn" data-plan="Premium" data-price="59">
+
+                        Choose Plan
+
+                    </button>
+
+                </div>
+
+                <!-- ELITE PLAN -->
+                <div class="membership-card">
+
+                    <h3>
+                        Elite
+                    </h3>
+
+                    <div class="price">
+
+                        $99<span>/month</span>
+
+                    </div>
+
+                    <p class="membership-description">
+
+                        Premium fitness experience with VIP benefits.
+
+                    </p>
+
+                    <ul class="features-list">
+
+                        <li>✓ VIP Access</li>
+
+                        <li>✓ Unlimited Training</li>
+
+                        <li>✓ Premium Coaching</li>
+
+                        <li>✓ Guest Privileges</li>
+
+                        <li>✓ Exclusive Classes</li>
+
+                        <li>✓ Priority Support</li>
+
+                    </ul>
+
+                    <button class="btn btn-secondary choose-plan-btn" data-plan="Elite" data-price="99">
+
+                        Choose Plan
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         MEMBERSHIP COMPARISON
+    ========================== -->
+    <!-- ====================================
+     MEMBERSHIP COMPARISON SECTION
+==================================== -->
+
+<section class="membership-comparison">
+
+    <div class="container">
+
+        <!-- SECTION TITLE -->
+
+        <h2 class="section-title">
+
+            Membership Comparison
+
+        </h2>
+
+        <p class="comparison-subtitle">
+
+            Compare our membership plans and choose
+            the perfect fitness package for your goals.
+
+        </p>
+
+        <!-- COMPARISON TABLE -->
+
+        <div class="comparison-table-wrapper">
+
+            <table class="comparison-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Features</th>
+
+                        <th>Basic</th>
+
+                        <th>Standard</th>
+
+                        <th>Premium</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Gym Access</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Cardio Area</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Strength Training</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Locker Facility</td>
+
+                        <td>✖</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Group Classes</td>
+
+                        <td>✖</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Personal Trainer</td>
+
+                        <td>✖</td>
+
+                        <td>2 Sessions</td>
+
+                        <td>Unlimited</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Diet Plan</td>
+
+                        <td>✖</td>
+
+                        <td>✔</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>24/7 Access</td>
+
+                        <td>✖</td>
+
+                        <td>✖</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Steam & Sauna</td>
+
+                        <td>✖</td>
+
+                        <td>✖</td>
+
+                        <td>✔</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         CTA SECTION
+    ========================== -->
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-content">
+
+                <h2>
+
+                    Ready to Start Your Fitness Journey?
+
+                </h2>
+
+                <p>
+
+                    Join POWERFIT GYM today and achieve your goals
+                    with our professional trainers and premium facilities.
+
+                </p>
+
+                <button class="btn btn-primary" id="joinNowBtn">
+
+                    Join Now
+
+                </button>
+
+            </div>
+
+        </div>
+        
+
+    </section>
+
+    <!-- =========================
+         FOOTER COMPONENT
+    ========================== -->
+    <div id="footer"></div>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/membership.js"></script>
+
+</body>
+
+</html>

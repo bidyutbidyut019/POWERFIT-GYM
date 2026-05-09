@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ====================================
+         META TAGS
+    ===================================== -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta 
+        name="description"
+        content="Login to POWERFIT GYM"
+    >
+
+    <!-- ====================================
+         TITLE
+    ===================================== -->
+    <title>Login | POWERFIT GYM</title>
+
+    <!-- ====================================
+         CSS FILES
+    ===================================== -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/auth.css">    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- ====================================
+         FAVICON
+    ===================================== -->
+    <link 
+        rel="icon"
+        type="image/png"
+        href="../public/images/logo.png"
+    >
+
+</head>
+
+<body>
+
+    <!-- ====================================
+         NAVBAR COMPONENT
+    ===================================== -->
+    <div id="navbar"></div>
+
+    <!-- ====================================
+         LOGIN SECTION
+    ===================================== -->
+    <section class="auth-page">
+
+        <div class="auth-container">
+
+            <!-- Header -->
+            <div class="auth-header">
+
+                <img 
+                    src="../public/images/logo.png"
+                    alt="POWERFIT GYM Logo"
+                    class="logo-img"
+                >
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Login to access your fitness dashboard
+                </p>
+
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+
+                        Email Address
+
+                    </label>
+
+                    <input 
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+
+                        Password
+
+                    </label>
+
+                    <input 
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+
+                    <!-- Remember -->
+                    <div class="remember-me">
+
+                        <input 
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <label for="rememberMe">
+
+                            Remember Me
+
+                        </label>
+
+                    </div>
+
+                    <!-- Forgot -->
+                    <a href="#" class="forgot-password">
+
+                        Forgot Password?
+
+                    </a>
+
+                </div>
+
+                <!-- Submit Button -->
+                <button 
+                    type="submit"
+                    class="auth-submit"
+                >
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+
+                <p>
+
+                    Don't have an account?
+
+                    <a href="register.html">
+
+                        Register Here
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ====================================
+         FOOTER COMPONENT
+    ===================================== -->
+    <div id="footer"></div>
+
+    <!-- ====================================
+         JAVASCRIPT
+    ===================================== -->
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/api-config.js"></script>
+
+</body>
+
+</html>

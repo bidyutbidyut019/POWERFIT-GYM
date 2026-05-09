@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="POWERFIT GYM Dashboard">
+
+    <title>Dashboard | POWERFIT GYM</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../public/images/logo.png">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         SIDEBAR COMPONENT
+    ========================== -->
+    <div id="sidebar"></div>
+
+    <!-- =========================
+         DASHBOARD MAIN
+    ========================== -->
+    <main class="dashboard-main">
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+
+            <div class="dashboard-title">
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Welcome back to POWERFIT GYM
+                </p>
+
+            </div>
+
+            <!-- User Info -->
+            <div class="dashboard-user-info">
+
+                <div class="user-avatar">
+                    B
+                </div>
+
+                <div class="user-details">
+
+                    <p class="username">
+                        Bidyut
+                    </p>
+
+                    <p class="role">
+                        Premium Member
+                    </p>
+
+                </div>
+
+                <a href="./profile.html" class="edit-profile-btn">
+
+                    Edit Profile
+
+                </a>
+
+                <button class="logout-btn">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             DASHBOARD CONTENT
+        ========================== -->
+        <section class="dashboard-content">
+
+            <!-- Card 1 -->
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    💪
+                </div>
+
+                <div class="stat-value">
+                    12
+                </div>
+
+                <div class="stat-label">
+                    Active Workouts
+                </div>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div class="stat-value">
+                    8
+                </div>
+
+                <div class="stat-label">
+                    Upcoming Classes
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+                <div class="stat-value">
+                    24
+                </div>
+
+                <div class="stat-label">
+                    Fitness Achievements
+                </div>
+
+            </div>
+
+            <!-- Card 4 - MEMBERSHIP CARD (CLICKABLE) -->
+            <a href="../pages/memberships.html" class="stat-card membership-card-link" style="text-decoration: none; color: inherit; cursor: pointer;">
+
+                <div class="stat-icon">
+                    💳
+                </div>
+
+                <div class="stat-value">
+                    Premium
+                </div>
+
+                <div class="stat-label">
+                    Membership Plan
+                </div>
+
+            </a>
+
+            <!-- =========================
+                 BOOKINGS TABLE
+            ========================== -->
+            <div class="full-width">
+
+                <div class="section-title">
+
+                    <h2>
+                        Recent Bookings
+                    </h2>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Class
+                                </th>
+
+                                <th>
+                                    Trainer
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Strength Training
+                                </td>
+
+                                <td>
+                                    Alex Johnson
+                                </td>
+
+                                <td>
+                                    12 May 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    HIIT Cardio
+                                </td>
+
+                                <td>
+                                    Sarah Lee
+                                </td>
+
+                                <td>
+                                    15 May 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Yoga Session
+                                </td>
+
+                                <td>
+                                    Emma Wilson
+                                </td>
+
+                                <td>
+                                    18 May 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-inactive">
+
+                                        Pending
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/api-config.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

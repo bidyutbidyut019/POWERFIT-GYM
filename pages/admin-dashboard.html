@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Admin Dashboard | POWERFIT GYM
+    </title>
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/admin-dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ====================================
+         ADMIN CHECK
+    ===================================== -->
+
+    <script>
+
+        const user =
+            JSON.parse(
+                localStorage.getItem(
+                    'user'
+                )
+            );
+
+        if (
+
+            !user ||
+
+            user.role !== 'admin'
+
+        ) {
+
+            alert(
+                'Access Denied'
+            );
+
+            window.location.href =
+                './login.html';
+
+        }
+
+    </script>
+
+    <!-- ====================================
+         SIDEBAR
+    ===================================== -->
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+
+            <img
+                src="../public/images/logo.png"
+                alt="POWERFIT"
+            >
+
+            <h2>
+
+                Admin Panel
+
+            </h2>
+
+        </div>
+
+        <ul class="admin-menu">
+
+            <li>
+
+                <a href="#">
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#membersSection">
+
+                    Members
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#requestsSection">
+
+                    Membership Requests
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="logout()"
+                >
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ====================================
+         MAIN CONTENT
+    ===================================== -->
+
+    <main class="admin-main">
+
+        <!-- HEADER -->
+
+        <header class="admin-header">
+
+            <h1>
+
+                Welcome Admin
+
+            </h1>
+
+        </header>
+
+        <!-- ====================================
+             STATS
+        ===================================== -->
+
+        <section class="admin-stats">
+
+            <div class="stat-card">
+
+                <h2 id="totalMembers">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Total Members
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="pendingRequests">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Pending Requests
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ====================================
+             MEMBERS SECTION
+        ===================================== -->
+
+        <section
+            id="membersSection"
+            class="admin-section"
+        >
+
+            <h2>
+
+                Members List
+
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                Name
+
+                            </th>
+
+                            <th>
+
+                                Email
+
+                            </th>
+
+                            <th>
+
+                                Membership
+
+                            </th>
+
+                            <th>
+
+                                Status
+
+                            </th>
+
+                            <th>
+
+                                Action
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="membersTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- ====================================
+             MEMBERSHIP REQUESTS
+        ===================================== -->
+
+        <section
+            id="requestsSection"
+            class="admin-section"
+        >
+
+            <h2>
+
+                Membership Requests
+
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                User
+
+                            </th>
+
+                            <th>
+
+                                Email
+
+                            </th>
+
+                            <th>
+
+                                Plan
+
+                            </th>
+
+                            <th>
+
+                                Price
+
+                            </th>
+
+                            <th>
+
+                                Status
+
+                            </th>
+
+                            <th>
+
+                                Action
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="requestsTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ====================================
+         PAYMENT CONFIRMATION MODAL
+    ===================================== -->
+    <div id="paymentModal" class="modal" style="display: none;">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3>Payment Confirmation</h3>
+
+                <button class="modal-close" onclick="closePaymentModal()">×</button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>Has the member received payment confirmation?</p>
+
+                <div class="payment-details">
+
+                    <p id="paymentUserName"></p>
+
+                    <p id="paymentAmount"></p>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-primary" onclick="confirmPaymentReceived()">
+
+                    Yes, Payment Received
+
+                </button>
+
+                <button class="btn btn-secondary" onclick="closePaymentModal()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================
+         REJECTION MODAL
+    ===================================== -->
+    <div id="rejectionModal" class="modal" style="display: none;">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3>Reject Request</h3>
+
+                <button class="modal-close" onclick="closeRejectionModal()">×</button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>Reason for rejection (optional):</p>
+
+                <textarea id="rejectionReason" placeholder="Enter reason for rejection..." style="width: 100%; height: 100px; padding: 10px; border-radius: 8px; border: 1px solid #ddd;"></textarea>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-danger" onclick="confirmRejection()">
+
+                    Reject Request
+
+                </button>
+
+                <button class="btn btn-secondary" onclick="closeRejectionModal()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ====================================
+         JAVASCRIPT
+    ===================================== -->
+
+    <script>
+
+        /* ====================================
+           LOGOUT
+        ==================================== */
+
+        function logout() {
+
+            localStorage.removeItem(
+                'token'
+            );
+
+            localStorage.removeItem(
+                'user'
+            );
+
+            window.location.href =
+                './login.html';
+
+        }
+
+        /* ====================================
+           FETCH USERS
+        ==================================== */
+
+        async function fetchUsers() {
+
+            try {
+
+                const response =
+                    await fetch(
+
+                        'http://localhost:5000/api/users'
+
+                    );
+
+                const data =
+                    await response.json();
+
+                const tableBody =
+                    document.getElementById(
+
+                        'membersTableBody'
+
+                    );
+
+                tableBody.innerHTML = '';
+
+                document.getElementById(
+
+                    'totalMembers'
+
+                ).innerText =
+                    data.data.length;
+
+                data.data.forEach((user) => {
+
+                    tableBody.innerHTML += `
+
+                        <tr>
+
+                            <td>
+
+                                ${user.firstName}
+                                ${user.lastName}
+
+                            </td>
+
+                            <td>
+
+                                ${user.email}
+
+                            </td>
+
+                            <td>
+
+                                ${user.membership || 'Basic'}
+
+                            </td>
+
+                            <td>
+
+                                ${user.status}
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="delete-btn"
+                                    onclick="deleteUser('${user._id}')"
+                                >
+
+                                    Delete
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                });
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        }
+
+        /* ====================================
+           DELETE USER
+        ==================================== */
+
+        async function deleteUser(id) {
+
+            const confirmDelete =
+                confirm(
+                    'Delete this user?'
+                );
+
+            if (!confirmDelete) return;
+
+            try {
+
+                await fetch(
+
+                    `http://localhost:5000/api/users/${id}`,
+
+                    {
+
+                        method: 'DELETE'
+
+                    }
+
+                );
+
+                fetchUsers();
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        }
+
+        /* ====================================
+           FETCH MEMBERSHIP REQUESTS
+        ==================================== */
+
+        async function fetchRequests() {
+
+            try {
+
+                const response =
+                    await fetch(
+
+                        'http://localhost:5000/api/membership-requests'
+
+                    );
+
+                const data =
+                    await response.json();
+
+                const tableBody =
+                    document.getElementById(
+
+                        'requestsTableBody'
+
+                    );
+
+                tableBody.innerHTML = '';
+
+                const pending =
+                    data.data.filter(
+
+                        request =>
+
+                            request.status ===
+                            'pending'
+
+                    );
+
+                document.getElementById(
+
+                    'pendingRequests'
+
+                ).innerText =
+                    pending.length;
+
+                data.data.forEach((request) => {
+
+                    tableBody.innerHTML += `
+
+                        <tr>
+
+                            <td>
+
+                                ${request.userName}
+
+                            </td>
+
+                            <td>
+
+                                ${request.email}
+
+                            </td>
+
+                            <td>
+
+                                ${request.plan}
+
+                            </td>
+
+                            <td>
+
+                                $${request.price}
+
+                            </td>
+
+                            <td>
+
+                                <span class="status-badge status-${request.status}">
+                                    ${request.status.charAt(0).toUpperCase() + request.status.slice(1)}
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                ${
+
+                                    request.status ===
+                                    'pending'
+
+                                    ?
+
+                                    `
+
+                                    <button
+                                        class="approve-btn"
+                                        onclick="openPaymentModal('${request._id}', '${request.userName}', ${request.price})"
+                                    >
+
+                                        Approve
+
+                                    </button>
+
+                                    <button
+                                        class="reject-btn"
+                                        onclick="openRejectionModal('${request._id}')"
+                                    >
+
+                                        Reject
+
+                                    </button>
+
+                                    `
+
+                                    : request.status === 'approved'
+
+                                    ?
+
+                                    `<span style="color: #22c55e; font-weight: 600;">Approved</span>`
+
+                                    :
+
+                                    `<span style="color: #ef4444; font-weight: 600;">Rejected</span>`
+
+                                }
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                });
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        }
+
+        /* ====================================
+           APPROVE REQUEST
+        ==================================== */
+
+        let currentRequestId = null;
+
+        function openPaymentModal(requestId, userName, price) {
+
+            currentRequestId = requestId;
+
+            document.getElementById('paymentUserName').innerText =
+                `User: ${userName}`;
+
+            document.getElementById('paymentAmount').innerText =
+                `Amount: $${price}`;
+
+            document.getElementById('paymentModal').style.display =
+                'flex';
+
+        }
+
+        function closePaymentModal() {
+
+            document.getElementById('paymentModal').style.display =
+                'none';
+
+            currentRequestId = null;
+
+        }
+
+        async function confirmPaymentReceived() {
+
+            try {
+
+                const response =
+                    await fetch(
+
+                        `http://localhost:5000/api/membership-requests/${currentRequestId}/approve`,
+
+                        {
+
+                            method: 'PUT',
+
+                            headers: {
+
+                                'Content-Type':
+                                    'application/json'
+
+                            },
+
+                            body: JSON.stringify({
+
+                                paymentConfirmed: true
+
+                            })
+
+                        }
+
+                    );
+
+                const data =
+                    await response.json();
+
+                if (data.success) {
+
+                    alert(
+                        'Membership Approved Successfully'
+                    );
+
+                    closePaymentModal();
+
+                    fetchRequests();
+
+                    fetchUsers();
+
+                } else {
+
+                    alert(data.message);
+
+                }
+
+            } catch (error) {
+
+                console.log(error);
+
+                alert('Error approving membership');
+
+            }
+
+        }
+
+        /* ====================================
+           REJECT REQUEST
+        ==================================== */
+
+        let rejectRequestId = null;
+
+        function openRejectionModal(requestId) {
+
+            rejectRequestId = requestId;
+
+            document.getElementById('rejectionReason').value = '';
+
+            document.getElementById('rejectionModal').style.display =
+                'flex';
+
+        }
+
+        function closeRejectionModal() {
+
+            document.getElementById('rejectionModal').style.display =
+                'none';
+
+            rejectRequestId = null;
+
+        }
+
+        async function confirmRejection() {
+
+            try {
+
+                const reason =
+                    document.getElementById('rejectionReason').value;
+
+                const response =
+                    await fetch(
+
+                        `http://localhost:5000/api/membership-requests/${rejectRequestId}/reject`,
+
+                        {
+
+                            method: 'PUT',
+
+                            headers: {
+
+                                'Content-Type':
+                                    'application/json'
+
+                            },
+
+                            body: JSON.stringify({
+
+                                reason: reason
+
+                            })
+
+                        }
+
+                    );
+
+                const data =
+                    await response.json();
+
+                if (data.success) {
+
+                    alert(
+                        'Membership Request Rejected'
+                    );
+
+                    closeRejectionModal();
+
+                    fetchRequests();
+
+                } else {
+
+                    alert(data.message);
+
+                }
+
+            } catch (error) {
+
+                console.log(error);
+
+                alert('Error rejecting request');
+
+            }
+
+        }
+
+        /* ====================================
+           LOAD DATA
+        ==================================== */
+
+        fetchUsers();
+
+        fetchRequests();
+
+    </script>
+
+</body>
+
+</html>

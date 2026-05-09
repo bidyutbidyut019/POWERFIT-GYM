@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ====================================
+         META TAGS
+    ===================================== -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta 
+        name="description"
+        content="Register at POWERFIT GYM"
+    >
+
+    <!-- ====================================
+         TITLE
+    ===================================== -->
+    <title>Register | POWERFIT GYM</title>
+
+    <!-- ====================================
+         CSS FILES
+    ===================================== -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/auth.css">    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- ====================================
+         FAVICON
+    ===================================== -->
+    <link 
+        rel="icon"
+        type="image/png"
+        href="../public/images/logo.png"
+    >
+
+</head>
+
+<body>
+
+    <!-- ====================================
+         NAVBAR COMPONENT
+    ===================================== -->
+    <div id="navbar"></div>
+
+    <!-- ====================================
+         REGISTER SECTION
+    ===================================== -->
+    <section class="auth-page">
+
+        <div class="auth-container">
+
+            <!-- Header -->
+            <div class="auth-header">
+
+                <img 
+                    src="../public/images/logo.png"
+                    alt="POWERFIT GYM Logo"
+                    class="logo-img"
+                >
+
+                <h1>
+                    Create Account
+                </h1>
+
+                <p>
+                    Join POWERFIT GYM and start your fitness journey
+                </p>
+
+            </div>
+
+            <!-- Register Form -->
+            <form id="registerForm">
+
+                <!-- First Name -->
+                <div class="form-group">
+
+                    <label for="firstName">
+
+                        First Name
+
+                    </label>
+
+                    <input 
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Enter your first name"
+                        required
+                    >
+
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+
+                    <label for="lastName">
+
+                        Last Name
+
+                    </label>
+
+                    <input 
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Enter your last name"
+                        required
+                    >
+
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+
+                        Email Address
+
+                    </label>
+
+                    <input 
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+
+                    <label for="phone">
+
+                        Phone Number
+
+                    </label>
+
+                    <input 
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+
+                    <label for="age">
+
+                        Age
+
+                    </label>
+
+                    <input 
+                        type="number"
+                        id="age"
+                        name="age"
+                        min="13"
+                        placeholder="Enter your age"
+                        required
+                    >
+
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+
+                    <label for="gender">
+
+                        Gender
+
+                    </label>
+
+                    <select 
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">Select Gender</option>
+
+                        <option value="male">Male</option>
+
+                        <option value="female">Female</option>
+
+                        <option value="other">Other</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+
+                        Password
+
+                    </label>
+
+                    <input 
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create password"
+                        required
+                    >
+
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+
+                        Confirm Password
+
+                    </label>
+
+                    <input 
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                </div>
+
+                <!-- Terms -->
+                <div class="form-actions">
+
+                    <div class="remember-me">
+
+                        <input 
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <label for="terms">
+
+                            I agree to the Terms & Conditions
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Submit -->
+                <button 
+                    type="submit"
+                    class="auth-submit"
+                >
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+
+                <p>
+
+                    Already have an account?
+
+                    <a href="login.html">
+
+                        Login Here
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ====================================
+         FOOTER COMPONENT
+    ===================================== -->
+    <div id="footer"></div>
+
+    <!-- ====================================
+         JAVASCRIPT
+    ===================================== -->
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/api-config.js"></script>
+
+</body>
+
+</html>
