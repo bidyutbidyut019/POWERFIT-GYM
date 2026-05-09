@@ -1,6 +1,13 @@
 // ====================================
-// REGISTER FORM
+// BACKEND API URL
 // ====================================
+
+const API_URL =
+    'https://server-073l.onrender.com/api/auth';
+
+/* ====================================
+   REGISTER FORM
+==================================== */
 
 const registerForm =
     document.getElementById('registerForm');
@@ -61,7 +68,7 @@ if (registerForm) {
 
                 const response = await fetch(
 
-                    'https://server-073l.onrender.com/api/auth/register',
+                    `${API_URL}/register`,
 
                     {
 
@@ -82,11 +89,17 @@ if (registerForm) {
                 const data =
                     await response.json();
 
+                console.log(data);
+
+                // SUCCESS
+
                 if (data.success) {
 
                     alert(
                         'Registration Successful'
                     );
+
+                    // SAVE TOKEN
 
                     localStorage.setItem(
 
@@ -96,6 +109,8 @@ if (registerForm) {
 
                     );
 
+                    // SAVE USER
+
                     localStorage.setItem(
 
                         'user',
@@ -103,6 +118,8 @@ if (registerForm) {
                         JSON.stringify(data.data)
 
                     );
+
+                    // REDIRECT
 
                     window.location.href =
                         './login.html';
@@ -160,7 +177,7 @@ if (loginForm) {
 
                 const response = await fetch(
 
-                    'https://server-073l.onrender.com/api/auth/login',
+                    `${API_URL}/login`,
 
                     {
 
@@ -187,6 +204,8 @@ if (loginForm) {
 
                 if (data.success) {
 
+                    // SAVE TOKEN
+
                     localStorage.setItem(
 
                         'token',
@@ -194,6 +213,8 @@ if (loginForm) {
                         data.token
 
                     );
+
+                    // SAVE USER
 
                     localStorage.setItem(
 
@@ -207,9 +228,7 @@ if (loginForm) {
                         'Login Successful'
                     );
 
-                    // ====================================
                     // ADMIN CHECK
-                    // ====================================
 
                     if (
 
@@ -250,7 +269,7 @@ if (loginForm) {
 }
 
 /* ====================================
-   PROFILE MENU SYSTEM (GLOBAL)
+   PROFILE MENU SYSTEM
 ==================================== */
 
 function initializeProfileMenu() {
@@ -277,13 +296,9 @@ function initializeProfileMenu() {
     const profileLetter =
         document.getElementById('profileLetter');
 
-    // ====================================
     // USER LOGGED IN
-    // ====================================
 
     if (user) {
-
-        // HIDE LOGIN/REGISTER
 
         if (loginNav) {
 
@@ -299,8 +314,6 @@ function initializeProfileMenu() {
 
         }
 
-        // SHOW PROFILE AND LOGOUT
-
         if (profileNav) {
 
             profileNav.style.display =
@@ -314,8 +327,6 @@ function initializeProfileMenu() {
                 'flex';
 
         }
-
-        // PROFILE LETTER
 
         if (
 
@@ -335,9 +346,7 @@ function initializeProfileMenu() {
 
     }
 
-    // ====================================
     // USER NOT LOGGED IN
-    // ====================================
 
     else {
 
@@ -372,3 +381,26 @@ function initializeProfileMenu() {
     }
 
 }
+
+/* ====================================
+   LOGOUT FUNCTION
+==================================== */
+
+function logoutUser() {
+
+    localStorage.removeItem('token');
+
+    localStorage.removeItem('user');
+
+    alert('Logout Successful');
+
+    window.location.href =
+        './login.html';
+
+}
+
+/* ====================================
+   INITIALIZE PROFILE MENU
+==================================== */
+
+initializeProfileMenu();
